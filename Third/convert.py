@@ -24,9 +24,12 @@ def convert_matrix(matrix, img_w, img_h):
             M=img_row
         else:
             M=np.vstack((M,img_row))
-    
     return M
 
+def convert_matrix_of_color_img(matrix,img_w,img_h):
+    convert_matrix(np.reshape(matrix[:,0],(1,-1)),img_w,img_h)
+    convert_matrix(np.reshape(matrix[:,1],(1,-1)),img_w,img_h)
+    convert_matrix(np.reshape(matrix[:,2],(1,-1)),img_w,img_h)
 
 if __name__=='__main__':
     #picture 2x2
