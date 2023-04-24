@@ -30,12 +30,10 @@ if __name__=='__main__':
     Xbar = np.concatenate((one, X), axis = 1)
 
     def grad(w):
-        _N=Xbar.shape[0]
-        return 1/_N*Xbar.T.dot(Xbar.dot(w)-y)
+        return 1+np.cos(w)
 
     def cost(w):
-        _N=Xbar.shape[0]
-        return 0.5/_N*np.linalg.norm(y-Xbar.dot(w),2)**2
+        return w+np.sin(w)
 
-    isCheckOk=check_grad(np.random.rand(2,1),cost,grad)
+    isCheckOk=check_grad(np.random.rand(1,1),cost,grad)
     print('checking gradient...',isCheckOk)
