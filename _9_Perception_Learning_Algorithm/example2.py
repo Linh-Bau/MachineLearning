@@ -95,10 +95,8 @@ def perceptron(w_init,X_bar,labels):
 
 #endregion
 
-
-
 if __name__=='__main__':
-    w_init=np.array([[2],[2],[2]])
+    w_init=np.array([[0],[0],[0]])
     #w=GD(w_init,0.1,X_bar,y)
     #w=GD_momentum(w_init,0.1,1,X_bar,y)
     w=perceptron(w_init,X_bar,y)
@@ -114,8 +112,11 @@ if __name__=='__main__':
         if frame<len(w):
             #wo,w1,w2
             #wo+w1*x+w2*y=0
-            _y1=(w[frame][0][0]+w[frame][1][0]*1)/(-w[frame][2][0])
-            _y2=(w[frame][0][0]+w[frame][1][0]*6)/(-w[frame][2][0])
+            d= -w[frame][2][0]
+            if d==0:
+                d=1e-4
+            _y1=(w[frame][0][0]+w[frame][1][0]*1)/(d)
+            _y2=(w[frame][0][0]+w[frame][1][0]*6)/(d)
             _2d_line.set_data([1,6],[_y1,_y2])
             title.set_text(f'intern: {frame+1}, w0= {w[frame][0][0]:.2f}, w1= {w[frame][1][0]:.2f}, w2={w[frame][2][0]:.2f}')
         return _2d_line,title
