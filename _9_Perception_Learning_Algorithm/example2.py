@@ -17,10 +17,10 @@ y = np.concatenate((np.ones((1, N)), -1*np.ones((1, N))), axis = 1)
 # Xbar 
 X_bar = np.concatenate((np.ones((1, 2*N)), X), axis = 0)
 
-#thêm nhiễu
-X1=np.concatenate((X1,[[2],[2]]),axis=1)
-X_bar=np.concatenate((X_bar,[[1],[2],[2]]),axis=1)
-y=np.concatenate((y,[[-1]]),axis=1)
+# #thêm nhiễu
+# X1=np.concatenate((X1,[[2],[2]]),axis=1)
+# X_bar=np.concatenate((X_bar,[[1],[2],[2]]),axis=1)
+# y=np.concatenate((y,[[-1]]),axis=1)
 
 #region Gradient Descent
 def grad(xi,yi):
